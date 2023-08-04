@@ -51,8 +51,8 @@ export default {
   },
   mounted() {
     // Fetch some popular movies on initial load (if required)
-    // This can be removed if you don't want to show popular movies initially.
-    const popURL = 'http://www.omdbapi.com/?s=avengers&apikey=62513876';
+  
+    const popURL = 'http://www.omdbapi.com/?s=Thor&apikey=62513876';
     fetch(popURL)
       .then((info) => info.json())
       .then((movies) => {

@@ -10,7 +10,6 @@ export default {
       if (this.searchTerm === "") {
         return;
       }
-      'http://www.omdbapi.com/?s=avengers&apikey=62513876';
 
       const apiKey = "62513876"; // Replace this with your actual API key
       const searchURL = `http://www.omdbapi.com/?s=${encodeURIComponent(
@@ -20,13 +19,20 @@ export default {
       fetch(searchURL)
         .then((val) => val.json())
         .then((movies) => {
-          this.imgs = this.parseImgResponse(movies);
-        })
+    if (movies.Search && movies.Search.length > 0) {
+      // Movies found, update the imgs state
+      this.imgs = this.parseImgResponse(movies);
+    } else {
+      // No movies found, display an alert
+      alert("No movies found.");
+    }
+  })
         .catch((error) => {
           console.error("Error fetching data:", error);
           this.imgs = []; // Clear the images array in case of an error
         });
     },
+    
     parseImgResponse(movies) {
       return movies.Search.reduce((acc, movie) => {
         if (!movie.Poster) {
@@ -58,7 +64,7 @@ export default {
 </script>
 
 <template>
-  <main class="p-10 bg-black">
+  <main class="p-10 bg-black text-white">
     <form @submit.prevent="search">
       <div class="flex justify-center m-auto">
         <input
@@ -73,7 +79,7 @@ export default {
       </div>
     </form>
     <div class="flex flex-wrap justify justify-around">
-      <div v-for="img of imgs" :key="img.Title" class="w-64 bg-purple-300 p-3 rounded-md mt-4">
+      <div v-for="img of imgs" :key="img.Title" class="w-64 bg-blue-700 p-3 rounded-md mt-4">
         <img :src="img.Poster" />
         <h1>{{ img.Title }}</h1>
         <span>{{ img.Year }}</span>

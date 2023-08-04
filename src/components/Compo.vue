@@ -1,8 +1,43 @@
-<script setup>
+<script>
+const URL =  'http://www.omdbapi.com/?s=avengers&apikey=62513876';
+const popURL =  'http://www.omdbapi.com/?s=avengers&apikey=62513876';
+const imgTest = ""
 
+export default {
+  
+    data: ()=> ({
+        imgTest: imgTest,
+        imgs:[]
+    }),
+    mounted(){
+        fetch(popURL).then(
+            (info)=> info.json()
+        ).then(
+            (movies)=>{
+                console.log(movies);
+                this.imgs= movies.Search.reduce((acc, movie)=>{
+                    if(!movie.Poster){
+                        return acc
+                    }
+                    acc.push({
+                        Poster: `${movie.Poster}`,
+                        Title: `${movie.Title}`,
+                        Type: `${movie.Type}`,
+                        Year: `${movie.Year}`,
+                        imdbID: `${movie.imdbID
+}`
+                    })
+                    return acc
+                },[]);
+            }
+        )
+    }
+
+}
 </script>
 
 <template>
+  
   <main class="p-10 bg-black">
       <form>
         <div class="flex justify-center m-auto">
@@ -10,12 +45,14 @@
           <button class="bg-red-500 p-2 rounded-md p- 2 ml-6 text-white">Search</button>
         </div>
       </form>
-
-    <div class="w-64 bg-purple-300 p-3 rounded-md mt-4">
-      <img src="https://m.media-amazon.com/images/M/MV5BNjM0NTc0NzItM2FlYS00YzEwLWE0YmUtNTA2ZWIzODc2OTgxXkEyXkFqcGdeQXVyNTgwNzIyNzg@._V1_SX300.jpg"/>
-      <h1>Title</h1>
-      <span>Date</span>
-    </div>
+    <div class="flex flex-wrap justify justify-around">
+    <div v-for="img of imgs" :key="img.Title" class="w-64 bg-purple-300 p-3 rounded-md mt-4">
+      <img :src="img.Poster"/>
+      <h1>{{ img.Title }}</h1>
+      <span>{{ img.Year }}</span>
+      </div>
+      {{ imgs }}
+      </div>
   </main>
 </template>
 

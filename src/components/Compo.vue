@@ -12,7 +12,7 @@ export default {
       }
 
       const apiKey = "62513876"; // Replace this with your actual API key
-      const searchURL = `http://www.omdbapi.com/?s=${encodeURIComponent(
+      const searchURL = `https://www.omdbapi.com/?s=${encodeURIComponent(
         this.searchTerm
       )}&apikey=${apiKey}`;
 
@@ -52,7 +52,7 @@ export default {
   mounted() {
     // Fetch some popular movies on initial load (if required)
   
-    const popURL = 'http://www.omdbapi.com/?s=Thor&apikey=62513876';
+    const popURL = 'https://www.omdbapi.com/?s=Thor&apikey=62513876';
     fetch(popURL)
       .then((info) => info.json())
       .then((movies) => {

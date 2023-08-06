@@ -66,7 +66,7 @@ export default {
 <template>
   <main class="p-10 bg-black text-white">
     <form @submit.prevent="search">
-      <div class="flex justify-center m-auto">
+      <div class="flex justify-center m-auto sm:justify-center">
         <input
           v-model="searchTerm"
           type="text"
@@ -78,7 +78,7 @@ export default {
         </button>
       </div>
     </form>
-    <div class="flex flex-wrap justify justify-right">
+    <div class="flex flex-wrap justify justify-right sm:justify-center">
       <div v-for="img of imgs" :key="img.Title" class="w-61 bg-blue-700 p-3 rounded-md m-4">
         <img :src="img.Poster" />
         <h1>{{ img.Title }}</h1>

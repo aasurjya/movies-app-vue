@@ -71,15 +71,15 @@ export default {
           v-model="searchTerm"
           type="text"
           placeholder="Search"
-          class="rounded-md w-2 lg:w-2/12 bg-gray-500 text-white pl-4"
+          class="rounded-md w-20 lg:w-2/12 bg-gray-500 text-white pl-4"
         />
-        <button type="submit" class="bg-red-500 p-2 rounded-md p-2 ml-6 text-white">
+        <button type="submit" class="bg-red-500 rounded-md p-2 ml-6 text-white">
           Search
         </button>
       </div>
     </form>
-    <div class="flex flex-wrap justify justify-around">
-      <div v-for="img of imgs" :key="img.Title" class="w-64 bg-blue-700 p-3 rounded-md mt-4">
+    <div class="flex flex-wrap justify justify-right">
+      <div v-for="img of imgs" :key="img.Title" class="w-61 bg-blue-700 p-3 rounded-md m-4">
         <img :src="img.Poster" />
         <h1>{{ img.Title }}</h1>
         <span>{{ img.Year }}</span>

@@ -70,7 +70,7 @@ export default {
 
 <style>
 /* Import Tailwind CSS */
-@import '../assets/index.css';
+@import '../../assets/index.css';
 
 /* Button animation */
 @keyframes ping {

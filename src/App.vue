@@ -1,8 +1,8 @@
 
 <script setup>
 import Compo from "./components/Compo.vue"
-import Signup from "./auth/Signup.vue";
-import SignIn from "./auth/SignIn.vue";
+import Signup from "./components/auth/Signup.vue";
+import SignIn from "./components/auth/SignIn.vue";
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import SignIn from "./auth/SignIn.vue";
     <div>
       <Compo/>
       <SignIn/>
-      <Signup/>
+      <Signup/> 
     </div>
   </header>
 </template>

@@ -78,12 +78,12 @@ export default {
         </button>
 
         <div class=" flex flex-row absolute top-0 right-20 basis-auto">
-        <button href="../auth/SignIn.vue" type="Login" class="bg-red-500 rounded-md p-2 ml-6 text-white">
+        <router-link to ="/signup" type="Login" class="bg-red-500 rounded-md p-2 ml-6 text-white">
           Signup
-        </button>
-        <button  href="../auth/Signup.vue" type="Signup" class="bg-red-500 rounded-md p-2 ml-6 text-white">
+        </router-link>
+        <router-link to="/signin" type="Signup" class="bg-red-500 rounded-md p-2 ml-6 text-white">
           Login
-        </button>
+        </router-link>
         </div>
 
       </div>

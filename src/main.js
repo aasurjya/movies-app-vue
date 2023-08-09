@@ -5,5 +5,5 @@ import router from "./router/routes";
 
 
 const app = createApp(App)
-app.use(router, { base: 'http://localhost:5173/' })
+app.use(router)
 app.mount('#app')

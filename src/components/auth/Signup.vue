@@ -2,7 +2,7 @@
   <div class="min-h-screen flex items-center justify-center bg-gray-900">
     <div class="w-full max-w-md p-6 bg-gray-800 rounded-lg shadow-lg">
       <h2 class="text-3xl font-bold mb-6 text-center text-white">Sign Up</h2>
-      <form>
+      <form @submit.prevent="submitForm">
         <div class="mb-4">
           <label class="block text-gray-300 text-sm font-bold mb-2" for="username">
             Username
@@ -11,6 +11,7 @@
             class="w-full px-3 py-2 placeholder-gray-500 border rounded-lg bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600 text-white"
             type="text"
             id="username"
+            v-model="UserName"
             placeholder="Enter your username"
           />
         </div>
@@ -22,6 +23,7 @@
             class="w-full px-3 py-2 placeholder-gray-500 border rounded-lg bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600 text-white"
             type="email"
             id="email"
+            v-model="Email"
             placeholder="Enter your email"
           />
         </div>
@@ -32,6 +34,7 @@
           <input
             class="w-full px-3 py-2 placeholder-gray-500 border rounded-lg bg-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-600 text-white"
             type="password"
+            v-model="Password"
             id="password"
             placeholder="Enter your password"
           />
@@ -58,11 +61,23 @@
 
 <script>
 export default {
-  methods: {
+    data(){
+      return{
+        UserName: "",
+        Email: "",
+        Password: ""
+      }
+    },
+    methods: {
     submitForm() {
-      // Handle form submission here
-      // For demonstration purposes, we are logging a message to the console
+      const formData= {
+        uName: this.UserName,
+        email: this.Email,
+        pass: this.Password
+        
+      };
       console.log("Form submitted!");
+      console.log(formData)
     },
   },
 };

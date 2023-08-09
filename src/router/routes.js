@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory} from "vue-router";
 import SignIn from "../components/auth/SignIn.vue";
 import signup from '../components/auth/Signup.vue'
-import PageNotFound from '../components/auth/PageNotFound.vue'
+import PageNotFound from '../components/PageNotFound.vue'
 import Home from "../components/Compo.vue"
 const router = createRouter({
   history: createWebHistory(),
